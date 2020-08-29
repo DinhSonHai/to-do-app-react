@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import checklist from '../src/img/checklist.svg';
 import './App.css';
 import TodoItem from './components/TodoItem';
 import TrafficLight from './components/TrafficLight';
@@ -56,20 +57,28 @@ class App extends Component {
     }
   }
 
+  onKeyUp(event) {
+    console.log(event);
+  }
+
   render() {
-    const { currentColor } = this.state;
+    const { currentColor, todoItems } = this.state;
     return (
       <div className="App">
-            <TrafficLight currentColor={ currentColor } />
+            {/* <TrafficLight currentColor={ currentColor } /> */}
+            <div className="Header">
+              <img src={ checklist } width={ 32 } height={ 32 }></img>
+              <input type="text" placeholder="Add a new item" onKeyUp={ this.onKeyUp }></input>
+            </div>
             {
-              this.state.todoItems.length > 0 && this.state.todoItems.map((item, index) => 
+              todoItems.length > 0 && todoItems.map((item, index) => 
                 <TodoItem key={ index } item={ item } onClick={ this.onItemClick(item) } />
               )
             }
             {
-              this.state.todoItems.length === 0 && 'Nothing here'
+              todoItems.length === 0 && 'Nothing here'
             }
-          <img src="https://picsum.photos/200/300" alt=""></img>
+          {/* <img src="https://picsum.photos/200/300" alt=""></img> */}
       </div>
     );
   }

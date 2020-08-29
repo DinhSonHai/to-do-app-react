@@ -10,6 +10,8 @@
     border-radius: 50%;
     margin: 10px;
     opacity: 0.2;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .TrafficLight .bulb.active {
