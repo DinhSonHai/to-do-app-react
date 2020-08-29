@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import './TodoItem.css';
 
 class TodoItem extends Component {
     render() {
-        const { item } = this.props;
-        let className = 'TodoItem';
-        if (item.isChecked) {
-            className += ' TodoItem--checked';
-        }
+        const { item, onClick } = this.props;
+        
         return (
-            <div className={ className }>
-                <p>{ this.props.item.title }</p>
+            <div onClick={ onClick } className={ classNames('TodoItem', {
+                'TodoItem--checked': item.isChecked
+            }) }>
+                <p>{ item.title }</p>
             </div>
         );
     }
