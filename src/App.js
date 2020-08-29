@@ -7,16 +7,18 @@ class App extends Component {
   constructor() {
     super();
     this.todoItems = [
-      'Đi xem phim', 
-      'Đi đá bóng', 
-      'Đi chợ'
+      { title: 'Đi xem phim', isChecked: true, }, 
+      { title: 'Đi đá bóng' }, 
+      { title: 'Đi chợ' },
     ];
 }
   render() {
     return (
       <div className="App">
             {
-              this.todoItems.map((item, index) => <TodoItem key={ index } title={ item } />)
+              this.todoItems.map((item, index) => 
+                <TodoItem key={ index } item={ item } />
+              )
             }
           <img src="https://picsum.photos/200/300" alt=""></img>
       </div>
