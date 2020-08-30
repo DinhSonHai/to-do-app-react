@@ -25,7 +25,7 @@ class App extends Component {
         currentColor: this.getNextColor(this.state.currentColor)
       });
     }, 1000);
-    this.onItemClick = this.onItemClick.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
   }
 
   getNextColor(color) {
@@ -58,7 +58,24 @@ class App extends Component {
   }
 
   onKeyUp(event) {
-    console.log(event);
+    if (event.keyCode === 13) {
+      let text = event.target.value;
+      if (!text) {
+        return;
+      }
+      text = text.trim();
+      if (!text) {
+        return;
+      }
+      this.setState({
+        todoItems: [
+          { title: text,
+            isChecked: false, },
+          ...this.state.todoItems
+        ]
+      });
+      event.target.value = '';
+    }
   }
 
   render() {
@@ -67,7 +84,7 @@ class App extends Component {
       <div className="App">
             {/* <TrafficLight currentColor={ currentColor } /> */}
             <div className="Header">
-              <img src={ checklist } width={ 32 } height={ 32 }></img>
+              <img className="Img" src={ checklist } width={ 32 } height={ 32 }></img>
               <input type="text" placeholder="Add a new item" onKeyUp={ this.onKeyUp }></input>
             </div>
             {
