@@ -5,6 +5,7 @@ import './App.css';
 import TodoItem from './components/TodoItem';
 import TrafficLight from './components/TrafficLight';
 import Accordion from './components/Accordion';
+import WeeklySongListItem from './components/WeeklySongListItem'; 
 
 const RED = 0;
 const ORANGE = 1;
@@ -94,7 +95,12 @@ class App extends Component {
             {/* <Accordion heading="Heading">
               Hello World
             </Accordion> */}
-            <div className="Header">
+            <WeeklySongListItem
+              order="01"
+              title="Em không thể"
+              singer="Tiên Tiên"
+              viewCount="3000" />
+            {/* <div className="Header">
               <img className="Img" src={ checklist } width={ 32 } height={ 32 } onClick={ this.onAllClick }></img>
               <input type="text" placeholder="Add a new item" onKeyUp={ this.onKeyUp }></input>
             </div>
@@ -105,7 +111,7 @@ class App extends Component {
             }
             {
               todoItems.length === 0 && 'Nothing here'
-            }
+            } */}
           {/* <img src="https://picsum.photos/200/300" alt=""></img> */}
       </div>
     );
